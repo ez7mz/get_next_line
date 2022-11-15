@@ -6,7 +6,7 @@
 /*   By: hmesrar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 21:06:50 by hmesrar           #+#    #+#             */
-/*   Updated: 2022/11/15 00:59:10 by hmesrar          ###   ########.fr       */
+/*   Updated: 2022/11/15 01:08:50 by hmesrar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdio.h>BUFFER_SIZE# include <unistd.h>
 
 # ifndef BUFFER_SIZE
-# 	define BUFFER_SIZE 5
+# 	define BUFFER_SIZE 10
 # endif
 
 char	*ft_strdup(const char *s1);
