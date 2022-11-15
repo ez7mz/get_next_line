@@ -6,73 +6,63 @@
 /*   By: hmesrar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 00:47:00 by hmesrar           #+#    #+#             */
-/*   Updated: 2022/11/15 00:56:30 by hmesrar          ###   ########.fr       */
+/*   Updated: 2022/11/15 18:33:30 by hmesrar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	ft_strlen(char *s)
+size_t	ft_strlen_to(char *str, char c)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	if (!s)
+	if (!str)
 		return (0);
-	while (s[i])
+	while (str[i] && str[i] != c)
 		i++;
 	return (i);
 }
 
-int	ft_strchr(char *s, int c)
+int	ft_strchr(char *str, char c)
 {
-	int		n;
-	char	test;
-	int		i;
+	int	i;
+	int n;
 
-	if (!s)
-		return (0);
-	n = ft_strlen(s) + 1;
-	test = c;
 	i = 0;
+	n = ft_strlen_to(str, '\0');
 	while (n--)
 	{
-		if (*s == test)
+		if (str[i] == c)
 			return (i);
-		s++;
 		i++;
 	}
 	return (0);
 }
 
-
 char	*ft_strjoin(char *s1, char *s2)
 {
-	char	*join;
-	int		len;
 	int		i;
 	int		j;
+	int		len;
+	char	*join;
 
-	if (!s1)
-		return (ft_strdup(""));
-	if (!s1 || !s2)
-		return (NULL);
-	i = -1;
-	j = 0;
-	len = ft_strlen(s1) + ft_strlen(s2);
-	// TO FREE
-	join = (char *)malloc(sizeof(char) * (len + 1));
+	len = ft_strlen_to(s1, '\0') + ft_strlen_to(s2, '\0');
+	join = malloc((len + 1) * sizeof(char));
 	if (!join)
 		return (0);
+	i = -1;
+	j = 0;
 	while (s1[++i])
 		join[i] = s1[i];
 	while (s2[j])
 		join[i++] = s2[j++];
-	join[len] = '\0';
+	join[i] = '\0';
+	// TO FREE S1 and S2
 	return (join);
 }
 
-char	*ft_substr(char *s, unsigned int start, size_t len)
+char	*ft_substr(char *s, size_t start, size_t len)
 {
 	size_t	i;
 	char	*sub;
@@ -81,13 +71,12 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 	i = 0;
 	if (!s)
 		return (0);
-	if ((ft_strlen(s) - start) < len)
-		len_to_alloc = ft_strlen(s) - start;
+	if ((ft_strlen_to(s, '\0') - start) < len)
+		len_to_alloc = ft_strlen_to(s, '\0') - start;
 	else
 		len_to_alloc = len;
-	if (start >= ft_strlen(s))
+	if (start >= ft_strlen_to(s, '\0'))
 		return (ft_strdup(""));
-	// TO FREE
 	sub = (char *)malloc(len_to_alloc * sizeof(char) + 1);
 	if (!sub)
 		return (0);
@@ -97,7 +86,7 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 		i++;
 	}
 	sub[i] = '\0';
-	// (void)ft_strlcpy(sub, s + start, len_to_alloc + 1);
+	// TO FREE IF NECESSARY
 	return (sub);
 }
 
@@ -108,8 +97,7 @@ char	*ft_strdup(char *s1)
 	size_t	len;
 
 	i = 0;
-	len = ft_strlen(s1);
-	// TO FREE
+	len = ft_strlen_to(s1, '\0');
 	dup = (char *)malloc(len * sizeof(char) + 1);
 	if (!dup)
 		return (0);
@@ -119,5 +107,6 @@ char	*ft_strdup(char *s1)
 		i++;
 	}
 	dup[i] = '\0';
+	// TO FREE IF NECESSARY
 	return (dup);
 }
