@@ -15,18 +15,17 @@
 
 # include <fcntl.h>
 # include <stdlib.h>
-# include <stdio.h>BUFFER_SIZE# include <unistd.h>
+# include <stdio.h>
+# include <unistd.h>
 
 # ifndef BUFFER_SIZE
-# 	define BUFFER_SIZE 10
+# 	define BUFFER_SIZE 5
 # endif
 
-char	*ft_strdup(const char *s1);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	*ft_join(char *s1, char *s2);
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
-int		contains_newline(char *s);
-int		ft_strlen(char *s);
+char	*ft_strdup(char *s1);
+char	*ft_substr(char *s, unsigned int start, size_t len);
+char	*ft_strjoin(char *s1, char *s2);
+int     ft_strchr(char *s, int c);
+int     ft_strlen(char *s);
 
 #endif
