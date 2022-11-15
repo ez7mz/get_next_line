@@ -6,7 +6,7 @@
 /*   By: hmesrar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 00:08:10 by hmesrar           #+#    #+#             */
-/*   Updated: 2022/11/15 18:44:19 by hmesrar          ###   ########.fr       */
+/*   Updated: 2022/11/15 18:56:19 by hmesrar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,19 @@ static char	*ft_read_line(int fd ,char *ptr)
 		ptr = ft_strdup("");
 	buff = malloc ((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buff)
-		return (NULL); // TO FREE
+		return (free(ptr), NULL); // TO FREE
 	readt = 1;
 	while (ft_strchr(ptr, '\n') == 0 && readt != 0)
 	{
 		readt = read(fd, buff, BUFFER_SIZE);
 		if (readt < 0)
-			return (NULL); // TO FREE ptr and buff
+			return (free(ptr), free(buff), NULL); // TO FREE ptr and buff
 		buff[readt] = '\0';
 		ptr = ft_strjoin(ptr, buff);
 		if (readt == 0 && ptr[0] == '\0')
-				return (NULL); // TO FREE ptr and buff
+				return (free(ptr), free(buff), NULL); // TO FREE ptr and buff
 		else if (readt == 0)
-			return (ptr); // TO FREE buff
+			return (free(buff), ptr); // TO FREE buff
 	}
 	free(buff);
 	return (ptr);
@@ -45,14 +45,17 @@ char	*get_next_line(int fd)
 	static char	*ptr;
 	int			pos;
 	int			end_pos;
+	char		*tmp;
 
 	ptr = ft_read_line(fd, ptr);
+	tmp = ptr;
 	if (!ptr)
 		return (NULL);
 	pos = ft_strlen_to(ptr, '\n');
 	end_pos = ft_strlen_to(ptr, '\0');
 	line = ft_substr(ptr, 0, pos + 1);
 	ptr = ft_substr(ptr, pos + 1, end_pos - pos);
+	free(tmp);
 	return (line);
 }
 

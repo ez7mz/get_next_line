@@ -6,7 +6,7 @@
 /*   By: hmesrar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 00:47:00 by hmesrar           #+#    #+#             */
-/*   Updated: 2022/11/15 18:33:30 by hmesrar          ###   ########.fr       */
+/*   Updated: 2022/11/15 18:55:32 by hmesrar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ char	*ft_strjoin(char *s1, char *s2)
 		join[i++] = s2[j++];
 	join[i] = '\0';
 	// TO FREE S1 and S2
+	free(s1);
 	return (join);
 }
 
