@@ -6,34 +6,34 @@
 /*   By: hmesrar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 20:07:44 by hmesrar           #+#    #+#             */
-/*   Updated: 2022/11/17 14:47:05 by hmesrar          ###   ########.fr       */
+/*   Updated: 2022/11/17 15:03:05 by hmesrar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-static char	*ft_read_line(int fd ,char *ptr)
+static char	*ft_read_line(int fd, char *ptr)
 {
 	char	*buff;
 	ssize_t	readt;
 
 	if (!ptr)
 		ptr = ft_strdup("");
-	buff = malloc ((BUFFER_SIZE + 1) * sizeof(char));
+	buff = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buff)
-		return (free(ptr), NULL); // TO FREE
+		return (free(ptr), NULL);
 	readt = 1;
 	while (!ft_strchr(ptr, '\n'))
 	{
 		readt = read(fd, buff, BUFFER_SIZE);
 		if (readt < 0)
-			return (free(ptr), free(buff), NULL); // TO FREE ptr and buff
+			return (free(ptr), free(buff), NULL);
 		buff[readt] = '\0';
 		ptr = ft_strjoin(ptr, buff);
 		if (readt == 0 && ptr[0] == '\0')
-				return (free(ptr), free(buff), NULL); // TO FREE ptr and buff
+			return (free(ptr), free(buff), NULL);
 		else if (readt == 0)
-			return (free(buff), ptr); // TO FREE buff
+			return (free(buff), ptr);
 	}
 	free(buff);
 	return (ptr);

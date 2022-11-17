@@ -6,7 +6,7 @@
 /*   By: hmesrar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 21:06:50 by hmesrar           #+#    #+#             */
-/*   Updated: 2022/11/15 18:32:41 by hmesrar          ###   ########.fr       */
+/*   Updated: 2022/11/17 15:00:58 by hmesrar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 # define GET_NEXT_LINE_H
 
 # include <fcntl.h>
-# include <stdlib.h>
 # include <stdio.h>
+# include <stdlib.h>
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 5
+#  define BUFFER_SIZE 777
 # endif
 
 size_t	ft_strlen_to(char *str, char c);

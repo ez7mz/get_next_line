@@ -6,7 +6,7 @@
 /*   By: hmesrar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 20:13:18 by hmesrar           #+#    #+#             */
-/*   Updated: 2022/11/17 14:44:49 by hmesrar          ###   ########.fr       */
+/*   Updated: 2022/11/17 15:03:18 by hmesrar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ size_t	ft_strlen_to(char *str, char c)
 int	ft_strchr(char *str, char c)
 {
 	int	i;
-	int n;
+	int	n;
 
 	i = 0;
 	n = ft_strlen_to(str, '\0');
@@ -58,7 +58,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	while (s2[j])
 		join[i++] = s2[j++];
 	join[i] = '\0';
-	// TO FREE S1 and S2
 	free(s1);
 	return (join);
 }
@@ -87,7 +86,6 @@ char	*ft_substr(char *s, size_t start, size_t len)
 		i++;
 	}
 	sub[i] = '\0';
-	// TO FREE IF NECESSARY
 	return (sub);
 }
 
@@ -108,6 +106,5 @@ char	*ft_strdup(char *s1)
 		i++;
 	}
 	dup[i] = '\0';
-	// TO FREE IF NECESSARY
 	return (dup);
 }
