@@ -6,7 +6,7 @@
 /*   By: hmesrar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 00:47:00 by hmesrar           #+#    #+#             */
-/*   Updated: 2022/11/15 18:55:32 by hmesrar          ###   ########.fr       */
+/*   Updated: 2022/11/17 14:42:59 by hmesrar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_strchr(char *str, char c)
 	while (n--)
 	{
 		if (str[i] == c)
-			return (i);
+			return (1);
 		i++;
 	}
 	return (0);

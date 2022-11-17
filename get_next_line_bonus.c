@@ -6,7 +6,7 @@
 /*   By: hmesrar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 20:07:44 by hmesrar           #+#    #+#             */
-/*   Updated: 2022/11/15 20:44:53 by hmesrar          ###   ########.fr       */
+/*   Updated: 2022/11/17 14:47:05 by hmesrar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static char	*ft_read_line(int fd ,char *ptr)
 	if (!buff)
 		return (free(ptr), NULL); // TO FREE
 	readt = 1;
-	while (ft_strchr(ptr, '\n') == 0 && readt != 0)
+	while (!ft_strchr(ptr, '\n'))
 	{
 		readt = read(fd, buff, BUFFER_SIZE);
 		if (readt < 0)
