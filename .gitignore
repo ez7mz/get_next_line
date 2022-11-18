@@ -6,3 +6,5 @@ gnlTester/
 going/
 *.txt
 *.o
+.vscode/
+main.dSYM/

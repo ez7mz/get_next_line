@@ -6,7 +6,7 @@
 /*   By: hmesrar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 00:08:10 by hmesrar           #+#    #+#             */
-/*   Updated: 2022/11/17 15:02:32 by hmesrar          ###   ########.fr       */
+/*   Updated: 2022/11/18 18:28:26 by hmesrar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ static char	*ft_read_line(int fd, char *ptr)
 	buff = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buff)
 		return (free(ptr), NULL);
-	readt = 1;
 	while (!ft_strchr(ptr, '\n'))
 	{
 		readt = read(fd, buff, BUFFER_SIZE);

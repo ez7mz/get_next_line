@@ -6,7 +6,7 @@
 /*   By: hmesrar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 21:06:50 by hmesrar           #+#    #+#             */
-/*   Updated: 2022/11/17 15:00:58 by hmesrar          ###   ########.fr       */
+/*   Updated: 2022/11/18 17:42:10 by hmesrar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 777
